@@ -7,9 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.example.lab13.ui.theme.AnimatedContent
 // import com.example.lab13.ui.theme.AnimatedVisibility
 // import com.example.lab13.ui.theme.AnimateColor
-import com.example.lab13.ui.theme.SizePosition
+// import com.example.lab13.ui.theme.SizePosition
 
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
             ) {
-                SizePosition(onBack = {})
+                AnimatedContent(onBack = {})
             }
         }
     }
