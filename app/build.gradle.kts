@@ -39,26 +39,36 @@ android {
     }
 
     composeOptions {
-        // Si tu versión de Compose/Gradle/AGP necesita configuración adicional, agrégala aquí
-        // kotlinCompilerExtensionVersion = "1.5.0" // opcional, solo si tu BOM lo requiere
     }
 }
 
 dependencies {
+    // Dependencias de Core y Lifecycle
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+
+    // Plataforma BOM (solo se necesita una vez)
     implementation(platform(libs.androidx.compose.bom))
+
+    // Dependencias de Compose UI y Material 3
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    implementation(libs.androidx.compose.material3)
 
+    // Animaciones (ambas necesarias)
+    implementation(libs.androidx.compose.animation) // Animaciones generales (AnimatedVisibility)
+    implementation("androidx.compose.animation:animation-core") // ⬅️ Este módulo contiene animateColor/DpAsState
+
+    // Dependencias de Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+
+    // Dependencias de Debug
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
